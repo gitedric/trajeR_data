@@ -33,6 +33,21 @@ solEMs <- trajeR(
     ssigma = TRUE, hessian = TRUE
 )
 ##################################################
+# plot
+plotrajeR(solL)
+# colour's defintion
+trans <- "70"
+col1 <- "#034569"
+col1.1 <- paste0("#64AAD0", trans)
+col2 <- "#750062"
+col2.1 <- paste0("#D962C7", trans)
+col3 <- "#A68900"
+col3.1 <- paste0("#FFE773", trans)
+cols1 <- c(col1.1, col2.1, col3.1)
+cols2 <- c(col1, col2, col3)
+vcol <- c(cols1, cols2)
+plotrajeR(solEM, Y = data[, 2:11], A = data[, 12:21], col = vcol)
+##################################################
 solLRisk <- trajeR(
     Y = data[, 2:11], A = data[, 12:21], Risk = data[, 42:43],
     degre = c(0, 3, 4),
