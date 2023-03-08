@@ -100,6 +100,25 @@ solEMTCOV2s <- trajeR(
     ssigma = TRUE, hessian = TRUE
 )
 ##################################################
+# plot
+# colour's defintion
+trans <- "70"
+col1 <- "#034569"
+col1.1 <- paste0("#64AAD0", trans)
+col2 <- "#750062"
+col2.1 <- paste0("#D962C7", trans)
+col3 <- "#A68900"
+col3.1 <- paste0("#FFE773", trans)
+cols1 <- c(col1.1, col2.1, col3.1)
+cols2 <- c(col1, col2, col3)
+vcol <- c(cols1, cols2)
+plotrajeR(solEM, Y = data[, 2:11], A = data[, 12:21], col = vcol)
+plotcov <- c(c(rep(0, 10), 0.8, 0.4, 0.2, 0.5, 0.6, 0.7, 0.8, 0.8, 0.9, 1), c(rep(1, 10), 0., 0., 0., 0., 0., 0.2, 0.2, 0.5, 0.8, 0.8))
+plotrajeR(solLTCOV2,
+    Y = data[, 2:11], A = data[, 12:21],
+    col = vcol, plotcov = plotcov
+)
+##################################################
 solLC <- trajeR(
     Y = dataC[, 2:11], A = dataC[, 12:21],
     degre = c(0, 3, 4),
